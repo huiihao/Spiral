@@ -1,0 +1,9 @@
+#!/bin/bash
+#SBATCH -p amd_256
+#SBATCH -N 1
+#SBATCH -n 64
+source /public9/soft/module.sh
+module load mpi/intel/20.4.3
+export PATH=$PATH:/public9/home/sc54385/yjy/SoftDPMD/deepmd-kit-2.0.1/bin
+srun /public9/home/sc54385/yjy/SoftDPMD/deepmd-kit-2.0.1/bin/lmp -in input_npt.lammps > lmp.log
+

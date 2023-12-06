@@ -1,0 +1,31 @@
+variable        NSTEPS          equal 50000
+variable        THERMO_FREQ     equal 10
+variable        DUMP_FREQ       equal 100
+variable        TEMP            equal 150
+variable        PRES            equal 1.0
+variable        TAU_T           equal 0.1
+variable        TAU_P           equal 0.5
+
+units           metal
+boundary        p p p
+atom_style      atomic
+
+neighbor        2.0 bin
+neigh_modify    every 1
+
+read_data       conf.lmp
+
+mass            1 87.620000
+mass            2 207.200000
+mass            3 47.867000
+mass            4 15.999000
+pair_style     deepmd /public9/home/sc54385/hyh/L25_phase-diagram/compress01.pb
+pair_coeff
+
+thermo_style    custom step temp pe ke etotal press vol lx ly lz cellalpha cellbeta cellgamma
+thermo          ${THERMO_FREQ}
+
+fix             1 all npt temp ${TEMP} ${TEMP} ${TAU_T} aniso ${PRES} ${PRES} ${TAU_P}
+timestep        0.002000
+run 0
+
