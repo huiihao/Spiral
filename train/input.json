@@ -1,0 +1,83 @@
+{
+    "model": {
+        "type_map": [
+            "Sr",
+            "Pb",
+            "Ti",
+            "O"
+        ],
+        "descriptor": {
+            "type": "se_e2_a",
+            "sel": [
+                160,
+                160,
+                160,
+                480
+            ],
+            "rcut_smth": 0.5,
+            "rcut": 6.0,
+            "neuron": [
+                25,
+                50,
+                100
+            ],
+            "resnet_dt": false,
+            "axis_neuron": 16,
+            "seed": 2205809248
+        },
+        "fitting_net": {
+            "neuron": [
+                240,
+                240,
+                240
+            ],
+            "resnet_dt": true,
+            "seed": 1567761946
+        }
+    },
+    "learning_rate": {
+        "type": "exp",
+        "start_lr": 0.001,
+        "stop_lr": 3.51e-08,
+        "decay_steps": 40000
+    },
+    "loss": {
+        "type": "ener",
+        "start_pref_e": 0.02,
+        "limit_pref_e": 1,
+        "start_pref_f": 1000,
+        "limit_pref_f": 1,
+        "start_pref_v": 0.0,
+        "limit_pref_v": 0.0
+    },
+    "training": {
+        "set_prefix": "set",
+        "stop_batch": 8000000,
+        "batch_size": "auto",
+        "disp_file": "lcurve.out",
+        "disp_freq": 1000,
+        "numb_test": 4,
+        "save_freq": 1000,
+        "save_ckpt": "model.ckpt",
+        "disp_training": true,
+        "time_training": true,
+        "profiling": false,
+        "profiling_file": "timeline.json",
+        "_comment": "that's all",
+        "systems": [
+            "psto/init.000","psto/init.001","psto/init.002","psto/init.003","psto/init.004","psto/init.005","psto/init.006","psto/init.007",
+            "psto/init.008","psto/init.009","psto/init.010","psto/init.011","psto/init.012","psto/init.013","psto/init.014","psto/init.015",
+            "psto/init.016","psto/init.017","psto/init.018","psto/init.019","psto/init.020","psto/init.021","psto/init.022","psto/init.023",
+            "pto/init.000","pto/init.001","pto/init.002","pto/init.003","pto/init.004","pto/init.005","pto/init.006","pto/init.007","pto/init.008",
+            "pto/init.009","pto/init.010","pto/init.011","pto/init.012","pto/init.013","pto/init.014","pto/init.015","pto/init.016","pto/init.017",
+            "pto/init.018","pto/init.019",
+            "sto/init.000","sto/init.001","sto/init.002","sto/init.003","sto/init.004","sto/init.005","sto/init.006","sto/init.007","sto/init.008",
+            "sto/init.009","sto/init.010","sto/init.011","sto/init.012","sto/init.013","sto/init.014","sto/init.015","sto/init.016","sto/init.017",
+            "sto/init.018","sto/init.019","sto/init.020","sto/init.021","sto/init.022","sto/init.023","sto/init.024","sto/init.025","sto/init.026",
+            "sto/init.027","sto/init.028","sto/init.029","sto/init.030","sto/init.031","sto/init.032","sto/init.033","sto/init.034","sto/init.035",
+            "sto/init.036","sto/init.037","sto/init.038","sto/init.039","sto/init.040","sto/init.041","sto/init.042","sto/init.043","sto/init.044",
+            "sto/init.045","sto/init.046","sto/init.047","sto/init.048","sto/init.049"
+        ],
+        "seed": 61925031
+    }
+}

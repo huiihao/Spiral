@@ -1,0 +1,26 @@
+# General
+ISTART = 0
+ICHARG = 2
+LWAVE = .FALSE.
+LCHARG = .FALSE.
+PREC = Accurate
+GGA = PS
+NPAR = 8
+
+# Ionic relaxation
+ISIF = 2
+IBRION = -1
+NSW = 0
+
+# Electronic optimization
+ENCUT = 800
+NELM = 120
+NELMIN = 8
+EDIFF = 1E-6
+ISMEAR = 0
+SIGMA = 0.05
+
+# K-points mesh
+KSPACING = 0.30
+KGAMMA = .TRUE.
+

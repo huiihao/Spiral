@@ -1,0 +1,41 @@
+variable        NSTEPS          equal 25000
+variable        THERMO_FREQ     equal 10
+variable        DUMP_FREQ       equal 10
+variable        TEMP            equal 300
+variable        PRES            equal 1.0
+variable        TAU_T           equal 1.0
+variable        TAU_P           equal 5.0
+
+units           metal
+boundary        p p p
+atom_style      atomic
+
+neighbor        2.0 bin
+neigh_modify    every 1
+
+read_data       PTO_C.data
+
+mass            1 87.620000
+mass            2 207.200000
+mass            3 47.867000
+mass            4 15.999000
+pair_style      deepmd compress01.pb
+
+pair_coeff
+
+thermo_style    custom step temp pe ke etotal press vol lx ly lz
+thermo          ${THERMO_FREQ}
+
+#min_style cg
+#minimize 1.0e-4 1.0e-6 1000 10000
+
+dump            1 all custom ${DUMP_FREQ} traj/*.lammpstrj id type x y z
+dump_modify  1 sort id
+
+velocity        all create ${TEMP} 539619
+fix             1 all npt temp ${TEMP} ${TEMP} ${TAU_T} z ${PRES} ${PRES} ${TAU_P}
+
+timestep        0.002000
+run             ${NSTEPS}
+write_restart    PTO_C.restart
+
