@@ -2,7 +2,7 @@
 
 <div style="color:black; background-color:#FFF3E9; border: 1px solid #FFE0C3; border-radius: 10px; margin-top:1rem; margin-bottom:1rem">
     <p style="margin:1rem; padding-left: 1rem; line-height: 2.5;">
-        <a style="font-weight:bold"><em> ©️ <b> <i>Copyright 2023 @ Yihao Hu (胡逸豪)</i></b><br/></a></em>
+        <a style="font-weight:bold"><em> ©️ <b> <i>Copyright 2024 @ Yihao Hu (胡逸豪)</i></b><br/></a></em>
         <i>Author：
             <b>
             <a href="mailto:huyihao@westlake.edu.cn"> Yihao Hu (胡逸豪) 📨 </a>
@@ -11,11 +11,11 @@
             </b>
         </i>
         <br/>
-        <i>Date：2023-12-04</i><br/>
+        <i>Date：2023-01-11</i><br/>
         <i>Lisence：This document is licensed under<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"> Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) </a>license.<br/>
          📖 <a style="font-weight:bold"> <b>Citing in your papers</b><br/></a>
          <i> We shall greatly appreciate if scientific work done using the published deep potential (<b>DP</b>)  and/or the associated database and scripts for data analysis will contain an acknowledgment to the following references</i><br/>
-        <i><a href="https://liutheory.westlake.edu.cn/pdf/PhysRevB.107.144102.pdf"> [1] Giant piezoelectric effect of helical dipole spiral in stretched PbTiO$_3$ membranes, Yihao Hu, Jiyuan Yang and Shi Liu*, Nature (2023)</a>
+        <i><a href="https://liutheory.westlake.edu.cn/pdf/PhysRevB.107.144102.pdf"> [1] Giant piezoelectric effects of topological structures in stretched ferroelectric membranes, Yihao Hu, Jiyuan Yang and Shi Liu*, arXiv (2024)</a>
         </i><br/>  
         <i><a href="https://liutheory.westlake.edu.cn/pdf/PhysRevB.107.144102.pdf"> [2] Modular development of deep potential for complex solid solutions, Jing Wu+, Jiyuan Yang+, Liyang Ma, Linfeng Zhang, and Shi Liu*, Phys. Rev. B 107, 144102 (2023)</a>
         </i><br/>       
@@ -24,7 +24,7 @@
 
 # 1. Introduction
 
-We share the **force field model**, **essential input files** for density functional theory (DFT) calculations and molecular dynamics (MD) simulations, **data analysis scripts**, and **selected original MD trajectories**, as detailed in our paper [1]. The model file for PbTiO$_3$, together with the complete training database and testing data, can be found in our <a href="https://github.com/sliutheorygroup/Spiral">GitHub repository</a>.
+We share the **force field model**, **essential input files** for density functional theory (DFT) calculations and molecular dynamics (MD) simulations, **data analysis scripts**, and **selected original MD trajectories**, as detailed in our paper [1]. The model file for PbTiO$_3$, together with the complete training database and testing data, can be found in our <a href="https://github.com/huiihao/Spiral">GitHub repository</a>.
 
 <!--The directory is organized as illustrated in the following diagram:
 
