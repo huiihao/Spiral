@@ -1,4 +1,4 @@
-# Giant piezoelectric effect of helical dipole spiral in stretched PbTiO$\rm _3$ membranes
+# Giant piezoelectric effects of topological structures in stretched ferroelectric membranes
 
 <div style="color:black; background-color:#FFF3E9; border: 1px solid #FFE0C3; border-radius: 10px; margin-top:1rem; margin-bottom:1rem">
     <p style="margin:1rem; padding-left: 1rem; line-height: 2.5;">
@@ -78,11 +78,7 @@ The DP model, based on a deep neural network with the number of learnable parame
 
 In this study, we utilized the smooth version of the DP model and employed the DEEPMD-KIT package for training. The cutoff radius is set to 6 Å, with smoothing starting at 0.5 Å. The embedding network follows a ResNet-like architecture with dimensions (25, 50, 100). The fitting network consists of three layers, each containing 240 nodes. The loss function is defined as:
 
-
-
 $L({p}_\epsilon, {p}_f, {p}_\xi) = {p}_\epsilon \Delta{\epsilon}^2 + \frac{p_f}{3N} \sum_i \left| \Delta{{{\mathbf{F}_i}}} \right|^2 + \frac{p_\xi}{9} \left | \Delta \xi \right |^2$
-
-
 
 Here, $\Delta$ represents the difference between DP predictions and training data, $N$ is the number of atoms, $\epsilon$ is the energy per atom, and $\mathbf{F}_i$ is the atomic force of atom $i$. The prefactors ${p}_\epsilon$, ${p}_f$, and ${p}_\xi$ are adjustable parameters. We increased ${p}_\epsilon$ from 0.02 to 1, while reducing ${p}_f$ from 1000 to 1.
 
@@ -105,8 +101,7 @@ The final training database comprises 13021 PbTiO$_3$ configurations and we calc
 The following graph can be plotted using data files `Spiral/paper/DFT_phase_diagram/model-error.dat` and `Spiral/paper/DFT_phase_diagram/Energy-min1st`.
 
 <div align=center>
-    <img src="./picture/SI_Fig1_Energy.png" width="49%" height="auto">
-    <img src="./picture/SI_Fig1_Force.png" width="49%" height="auto">
+    <img src="./picture/SI_Fig1.png" width="100%" height="auto">
 </div>
 
 ## 3. Results
@@ -138,8 +133,6 @@ python plot-DFT.py
 ```
 
 Use the output structures from the DFT calculations to perform a subsequent DP calculation (single-point energy calculation) in order to obtain the energy under DP. Combine this data with the test data from the trained model to generate the error plot as shown in the last figure in **Section 2.5**.
-
-
 
 > **The following LAMMPS input file settings are applied to all MD cases mentioned in the articles.**
 
