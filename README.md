@@ -7,7 +7,7 @@
             <b>
             <a href="mailto:huyihao@westlake.edu.cn"> Yihao Hu (胡逸豪) 📨 </a>
             <a href="mailto:yangjiyuan@westlake.edu.cn"> Jiyuan Yang (杨季元) 📨 </a>
-            <a href="mailto:liu@westlake.edu.cn"> Shi Liu (刘仕) 📨 </a>
+            <a href="mailto:liushi@westlake.edu.cn"> Shi Liu (刘仕) 📨 </a>
             </b>
         </i>
         <br/>
