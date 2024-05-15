@@ -1,0 +1,4 @@
+The initial configuration A (denoted as iniA) represents the [110] state, which is used as the POSCAR for the DFT (Density Functional Theory) calculation.
+The initial configuration B (denoted as iniB) represents the [101] state.
+The initial configuration C (denoted as iniC) represents the [001] state.
+The initial configuration D (denoted as iniD) represents the [111] state.
