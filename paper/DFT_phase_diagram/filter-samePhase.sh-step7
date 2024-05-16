@@ -1,6 +1,0 @@
-#!/bin/bash
-
-cp 1.log sortEmin1.log
-cp Emin2.log-merge1 sortEmin2.log
-cp Emin3.log-merge2 sortEmin3.log
-cp Emin4.log-merge2 sortEmin4.log

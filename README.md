@@ -45,7 +45,7 @@ The directory is organized as illustrated in the following diagram:
 - `train`: Contains the training dataset and the `input.json` file which holds the training metadata. Refer to **Section 2**. Includes a representative `INCAR` file for DFT SCF calculations that were used to construct training database. Refer to **Section 2.3**.
 - `model`: Stores the force field file `compress01.pb`.
 - `paper`:
-  - `DFT_phase_diagram`: Offers method and scripts to implement calculations of DFT phase diagram. Refer to **Section 3.1**.
+  - `DFT_phase_diagram`: We have shared the CONTCAR files and their energies for all ≈700 configurations. Refer to **Section 3.1**.
   - `dipole_spiral`: Offers selected MD trajectories and scripts to implement calculations (Refer to **Section 3.2**.) and demonstrate the robustness of dipole spiral Refer to (**Section 3.3**).
   - `Piezoelectric`: Dedicated to piezoelectric coefficient $d_{33}$ calculations via finite-field MD simulations. Refer to **Section 3.4**.
   - `other_domain`: Offers selected MD trajectories and scripts to implement calculations of various ferroelectric domains. Refer to **Section 3.5**. 
@@ -108,31 +108,45 @@ The following graph can be plotted using data files `Spiral/paper/DFT_phase_diag
 
 ### 3.1. DFT phase diagram
 
-The phase diagram of DFT obtained with VASP can be found in the directory `Spiral/paper/DFT_phase_diagram/`. Run the following code to perform DFT calculations.
+For each strain condition, we used 4 initial configurations as POSCAR for the DFT calculations. These 4 configurations have different initial polarizations: **A** represents polarization along [110], **B** represents polarization along [011], **C** represents polarization along [001], and **D** represents polarization along [111]. For each strain condition, we obtained 4 stable structures. We analyzed whether these 4 structures have the same polarization direction, and finally screened out 4 or fewer unique configurations. We then compared their energy magnitudes and obtained Fig.1.
 
-```bash
-bash loop-run.sh
-```
+The INCAR file for optimizing the structure is located in `Spiral/paper/DFT_phase_diagram/IO/`.
 
-After the completion of DFT calculations, retrieve the energies of the final structures corresponding to the initial configurations of A/B/C/D, and sort them in ascending order.
+All the CONTCAR are in these directories e.g., `Spiral/paper/DFT_phase_diagram/IO/a3.932b3.954/iniA`:
 
-```bash
-bash choose-1stEminValue.sh; bash choose-2ndEminValue.sh; bash choose-3rdEminValue.sh; bash choose-4thEminValue.sh
-```
+1. **a3.932b3.954** represent the strain condition: a$\rm _{IP}$=3.932 $\rm \AA$, b$\rm _{IP}$=3.954 $$\rm \AA$.
 
-By performing data analysis using the script, obtain displacement data `A_Disp.dat-m and B_Disp.dat-m (m = Emin, E2ndmin, E3rdmin , E4thmin)`, and then merge identical configurations based on adjustable criteria such as energy difference and polarization difference.
+2. **iniA** represent the initial configuration whose polarization along [110]; **iniB** represent the initial configuration whose polarization along [101]; **iniC** represent the initial configuration whose polarization along [001]; **iniD** represent the initial configuration whose polarization along [111].
 
-```bash
-bash run-filter.sh
-```
+The energy of all structures is recorded in the data file `Spiral/paper/DFT_phase_diagram/energy_all.txt`.  The displacement of all structures is recorded in the data file `Spiral/paper/DFT_phase_diagram/displacement_all.txt`. 
 
-Ti atom displacements greater than 0.14 are classified as 1, those smaller than 0.03 are classified as 0, and those in between are denoted as u. By using a plotting script, the right half of **Fig.1** in [1] can be obtained.
+Next, let's explain the label in the first row of the data file:
 
-```python
-python plot-DFT.py
-```
+1. **a**: in-plane lattice parameter a
 
-Use the output structures from the DFT calculations to perform a subsequent DP calculation (single-point energy calculation) in order to obtain the energy under DP. Combine this data with the test data from the trained model to generate the error plot as shown in the last figure in **Section 2.5**.
+2. **b**: in-plane lattice parameter b
+
+3. **E1min**: the 1st lowest energy configuration among the four
+
+4. **E2min**: the 2nd lowest energy configuration among the four
+
+5. **E3min**: the 3rd lowest energy configuration among the four
+
+6. **E4min**: the 4th lowest energy configuration among the four
+
+7. **energy**: Unit is eV/u.c.
+
+8. **dx**: The x-component of the Ti displacement.
+
+9. **dy**: The y-component of the Ti displacement.
+
+10. **dz**: The z-component of the Ti displacement.
+
+If the displacement is (0,0,0), it indicates that the polarization of the stable configuration obtained after equilibration starting from the initial configuration is the same as the polarization of another stable configuration obtained after equilibration starting from another initial configuration. Therefore, the two will be merged into a single unique state.
+
+Displacements of Ti greater than 0.14 are classified as 1, those smaller than 0.03 are classified as 0, and those in between are denoted as u. By using a plotting script, **Fig.1** in [1] can be obtained.
+
+
 
 > **The following LAMMPS input file settings are applied to all MD cases mentioned in the articles.**
 
