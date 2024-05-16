@@ -114,13 +114,18 @@ The INCAR file for optimizing the structure is located in `Spiral/paper/DFT_phas
 
 All the CONTCAR are in these directories e.g., `Spiral/paper/DFT_phase_diagram/IO/a3.932b3.954/iniA`:
 
+<<<<<<< HEAD
 1. **a3.932b3.954** represent the strain condition: a$\rm _{IP}$=3.932 $\rm \AA$, b$\rm _{IP}$=3.954 $\rm \AA$.
+=======
+1. **a3.932b3.954** represent the strain condition: a$\rm _{IP}$=3.932 $\rm \AA$, b$\rm _{IP}$=3.954 $$\rm \AA$.
+>>>>>>> b1c09d767569c2a0ee48d657e507ee71283a6f1b
 
 2. **iniA** represent the initial configuration whose polarization along [110]; **iniB** represent the initial configuration whose polarization along [101]; **iniC** represent the initial configuration whose polarization along [001]; **iniD** represent the initial configuration whose polarization along [111].
 
 The energy of all structures is recorded in the data file `Spiral/paper/DFT_phase_diagram/energy_all.txt`.  The displacement of all structures is recorded in the data file `Spiral/paper/DFT_phase_diagram/displacement_all.txt`. 
 
 Next, let's explain the label in the first row of the data file:
+<<<<<<< HEAD
 
 1. **a**: in-plane lattice parameter a
 
@@ -145,6 +150,34 @@ Next, let's explain the label in the first row of the data file:
 If the displacement is (0,0,0), it indicates that the polarization of the stable configuration obtained after equilibration starting from the initial configuration is the same as the polarization of another stable configuration obtained after equilibration starting from another initial configuration. Therefore, the two will be merged into a single unique state.
 
 Displacements of Ti greater than 0.14 are classified as 1, those smaller than 0.03 are classified as 0, and those in between are denoted as u. By using a plotting script, **Fig.1** in [1] can be obtained.
+=======
+
+1. **a**: in-plane lattice parameter a
+
+2. **b**: in-plane lattice parameter b
+
+3. **E1min**: the 1st lowest energy configuration among the four
+
+4. **E2min**: the 2nd lowest energy configuration among the four
+
+5. **E3min**: the 3rd lowest energy configuration among the four
+
+6. **E4min**: the 4th lowest energy configuration among the four
+
+7. **energy**: Unit is eV/u.c.
+
+8. **dx**: The x-component of the Ti displacement.
+
+9. **dy**: The y-component of the Ti displacement.
+
+10. **dz**: The z-component of the Ti displacement.
+
+If the displacement is (0,0,0), it indicates that the polarization of the stable configuration obtained after equilibration starting from the initial configuration is the same as the polarization of another stable configuration obtained after equilibration starting from another initial configuration. Therefore, the two will be merged into a single unique state.
+
+Displacements of Ti greater than 0.14 are classified as 1, those smaller than 0.03 are classified as 0, and those in between are denoted as u. By using a plotting script, **Fig.1** in [1] can be obtained.
+
+
+>>>>>>> b1c09d767569c2a0ee48d657e507ee71283a6f1b
 
 > **The following LAMMPS input file settings are applied to all MD cases mentioned in the articles.**
 
