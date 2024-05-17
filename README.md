@@ -108,13 +108,13 @@ The following graph can be plotted using data files `Spiral/paper/DFT_phase_diag
 
 ### 3.1. DFT phase diagram
 
-For each strain condition, we used 4 initial configurations as POSCAR for the DFT calculations. These 4 configurations have different initial polarizations: **A** represents polarization along [110], **B** represents polarization along [011], **C** represents polarization along [001], and **D** represents polarization along [111]. For each strain condition, we obtained 4 stable structures. We analyzed whether these 4 structures have the same polarization direction, and finally screened out 4 or fewer unique configurations. We then compared their energy magnitudes and obtained Fig.1.
+For each strain condition, we used 4 initial configurations as POSCAR for the DFT calculations. These 4 configurations have different initial polarizations: **A** represents polarization along [110], **B** represents polarization along [011], **C** represents polarization along [001], and **D** represents polarization along [111]. For each strain condition, we performed in-plane constrained, out-of-plane fully relaxed structural optimizations on these 4 structures. The optimized structures obtained may have the same polarization directions. Then we need to analyze whether these 4 structures have the same polarization direction, and finally screened out 4 or fewer unique configurations. We then compared their energy magnitudes and obtained Fig.1.
 
 The INCAR file for optimizing the structure is located in `Spiral/paper/DFT_phase_diagram/IO/`.
 
 All the CONTCAR are in these directories e.g., `Spiral/paper/DFT_phase_diagram/IO/a3.932b3.954/iniA`:
 
-1. **a3.932b3.954** represent the strain condition: a$\rm _{IP}$=3.932 $\rm \AA$, b$\rm _{IP}$=3.954 $\rm \AA$.
+1. **a3.932b3.954** represent the strain condition: a$\rm _{IP}$=3.932 Å, b$\rm _{IP}$=3.954 Å.
 
 2. **iniA** represent the initial configuration whose polarization along [110]; **iniB** represent the initial configuration whose polarization along [101]; **iniC** represent the initial configuration whose polarization along [001]; **iniD** represent the initial configuration whose polarization along [111].
 
@@ -122,9 +122,9 @@ The energy of all structures is recorded in the data file `Spiral/paper/DFT_phas
 
 Next, let's explain the label in the first row of the data file:
 
-1. **a**: in-plane lattice parameter a
+1. **a**: in-plane lattice parameter a. Unit is angstrom.
 
-2. **b**: in-plane lattice parameter b
+2. **b**: in-plane lattice parameter b. Unit is angstrom.
 
 3. **E1min**: the 1st lowest energy configuration among the four
 
@@ -144,7 +144,7 @@ Next, let's explain the label in the first row of the data file:
 
 If the displacement is (0,0,0), it indicates that the polarization of the stable configuration obtained after equilibration starting from the initial configuration is the same as the polarization of another stable configuration obtained after equilibration starting from another initial configuration. Therefore, the two will be merged into a single unique state.
 
-Displacements of Ti greater than 0.14 $\rm \AA$ are classified as 1, those smaller than 0.03 are classified as 0, and those in between are denoted as u. By using a plotting script, **Fig.1** in [1] can be obtained.
+Displacements of Ti greater than 0.14 Å are classified as 1, those smaller than 0.03 are classified as 0, and those in between are denoted as u. By using a plotting script, **Fig.1** in [1] can be obtained.
 
 > **The following LAMMPS input file settings are applied to all MD cases mentioned in the articles.**
 
