@@ -28,7 +28,7 @@
 
 # 1. Introduction
 
-We share the **force field model**, **essential input files** for density functional theory (DFT) calculations and molecular dynamics (MD) simulations, **data analysis scripts**, and **selected original MD trajectories**, as detailed in our paper [1]. The model file for PbTiO$`_3`$, together with the complete training database and testing data, can be found in our <a href="https://github.com/huiihao/Spiral">GitHub repository</a>.
+We share the **force field model**, **essential input files** for density functional theory (DFT) calculations and molecular dynamics (MD) simulations, **data analysis scripts**, and **selected original MD trajectories**, as detailed in our paper [1]. The model file for PbTiO$`_3`$ , together with the complete training database and testing data, can be found in our <a href="https://github.com/huiihao/Spiral">GitHub repository</a>.
 
 <!--The directory is organized as illustrated in the following diagram:
 
@@ -62,7 +62,7 @@ The directory is organized as illustrated in the following diagram:
 
 The force field of PbTiO$`_3`$ utilized in this work is a deep neural network-based model potential, referred to as deep potential (**DP**).
 
-Details regarding the construction of the training database, DFT calculations, and metadata of the DP model were documented in our previous work [2]. Specifically, we adopted the **DP-GEN**, a concurrent learning procedure, to construct the training database (see details in **Section 2.1**). The initial training database contains DFT energies and atomic forces for structures derived from random perturbations of ground-state structures of $P4mm$ (tetragonal) and $Pm3m$ (cubic) phases of PbTiO$`_3`$. The final training database comprises 13021 PbTiO$`_3`$ configurations. You can access the training database in `Spiral/train/PSTO-data.zip`.
+Details regarding the construction of the training database, DFT calculations, and metadata of the DP model were documented in our previous work [2]. Specifically, we adopted the **DP-GEN**, a concurrent learning procedure, to construct the training database (see details in **Section 2.1**). The initial training database contains DFT energies and atomic forces for structures derived from random perturbations of ground-state structures of $P4mm$ (tetragonal) and $Pm3m$ (cubic) phases of PbTiO$`_3`$ . The final training database comprises 13021 PbTiO$`_3`$ configurations. You can access the training database in `Spiral/train/PSTO-data.zip`.
 
 ### 2.2. DP-GEN
 
@@ -82,7 +82,9 @@ The DP model, based on a deep neural network with the number of learnable parame
 
 In this study, we utilized the smooth version of the DP model and employed the DEEPMD-KIT package for training. The cutoff radius is set to 6 Å, with smoothing starting at 0.5 Å. The embedding network follows a ResNet-like architecture with dimensions (25, 50, 100). The fitting network consists of three layers, each containing 240 nodes. The loss function is defined as:
 
-$` L({p}_\epsilon, {p}_f, {p}_\xi) = {p}_\epsilon \Delta{\epsilon}^2 + \frac{p_f}{3N} \sum_i \left| \Delta{{{\mathbf{F}_i}}} \right|^2 + \frac{p_\xi}{9} \left | \Delta \xi \right |^2 `$
+```math
+L({p}_\epsilon, {p}_f, {p}_\xi) = {p}_\epsilon \Delta{\epsilon}^2 + \frac{p_f}{3N} \sum_i \left| \Delta{{{\mathbf{F}_i}}} \right|^2 + \frac{p_\xi}{9} \left | \Delta \xi \right |^2 
+```
 
 Here, $`\Delta`$ represents the difference between DP predictions and training data, $`N`$ is the number of atoms, $`\epsilon`$ is the energy per atom, and $`\mathbf{F}_i`$ is the atomic force of atom $`i`$. The prefactors $`{p}_\epsilon`$ , $`{p}_f`$, and $`{p}_\xi`$ are adjustable parameters. We increased $`{p}_\epsilon`$ from 0.02 to 1, while reducing $`{p}_f`$ from 1000 to 1.
 
@@ -118,7 +120,7 @@ The INCAR file for optimizing the structure is located in `Spiral/paper/DFT_phas
 
 All the CONTCAR are in these directories e.g., `Spiral/paper/DFT_phase_diagram/IO/a3.932b3.954/iniA`:
 
-1. **a3.932b3.954** represent the strain condition: a$`\rm _{IP}`$=3.932 Å, b$`\rm _{IP}`$=3.954 Å.
+1. **a3.932b3.954** represent the strain condition: a$`_{IP}`$=3.932 Å, b$`_{IP}`$=3.954 Å.
 
 2. **iniA** represent the initial configuration whose polarization along [110]; **iniB** represent the initial configuration whose polarization along [101]; **iniC** represent the initial configuration whose polarization along [001]; **iniD** represent the initial configuration whose polarization along [111].
 
