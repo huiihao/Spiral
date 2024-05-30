@@ -82,9 +82,9 @@ The DP model, based on a deep neural network with the number of learnable parame
 
 In this study, we utilized the smooth version of the DP model and employed the DEEPMD-KIT package for training. The cutoff radius is set to 6 Å, with smoothing starting at 0.5 Å. The embedding network follows a ResNet-like architecture with dimensions (25, 50, 100). The fitting network consists of three layers, each containing 240 nodes. The loss function is defined as:
 
-$L({p}_\epsilon, {p}_f, {p}_\xi) = {p}_\epsilon \Delta{\epsilon}^2 + \frac{p_f}{3N} \sum_i \left| \Delta{{{\mathbf{F}_i}}} \right|^2 + \frac{p_\xi}{9} \left | \Delta \xi \right |^2$
+$$ L({p}_\epsilon, {p}_f, {p}_\xi) = {p}_\epsilon \Delta{\epsilon}^2 + \frac{p_f}{3N} \sum_i \left| \Delta{{{\mathbf{F}_i}}} \right|^2 + \frac{p_\xi}{9} \left | \Delta \xi \right |^2 $$
 
-Here, $\Delta$ represents the difference between DP predictions and training data, $N$ is the number of atoms, $\epsilon$ is the energy per atom, and $\mathbf{F}_i$ is the atomic force of atom $i$. The prefactors ${p}_\epsilon$, ${p}_f$, and ${p}_\xi$ are adjustable parameters. We increased ${p}_\epsilon$ from 0.02 to 1, while reducing ${p}_f$ from 1000 to 1.
+Here, $`\Delta`$ represents the difference between DP predictions and training data, $`N`$ is the number of atoms, $`\epsilon`$ is the energy per atom, and $`\mathbf{F}_i`$ is the atomic force of atom $`i`$. The prefactors $`{p}_\epsilon`$, $`{p}_f`$, and $`{p}_\xi`$ are adjustable parameters. We increased $`{p}_\epsilon`$ from 0.02 to 1, while reducing $`{p}_f`$ from 1000 to 1.
 
 The `input.json` file for training is located in the `Spiral/train` directory.
 
