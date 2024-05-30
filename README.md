@@ -28,7 +28,7 @@
 
 # 1. Introduction
 
-We share the **force field model**, **essential input files** for density functional theory (DFT) calculations and molecular dynamics (MD) simulations, **data analysis scripts**, and **selected original MD trajectories**, as detailed in our paper [1]. The model file for PbTiO$_3$, together with the complete training database and testing data, can be found in our <a href="https://github.com/huiihao/Spiral">GitHub repository</a>.
+We share the **force field model**, **essential input files** for density functional theory (DFT) calculations and molecular dynamics (MD) simulations, **data analysis scripts**, and **selected original MD trajectories**, as detailed in our paper [1]. The model file for PbTiO$`_3`$, together with the complete training database and testing data, can be found in our <a href="https://github.com/huiihao/Spiral">GitHub repository</a>.
 
 <!--The directory is organized as illustrated in the following diagram:
 
@@ -60,13 +60,13 @@ The directory is organized as illustrated in the following diagram:
 
 ### 2.1. Training database
 
-The force field of PbTiO$_3$ utilized in this work is a deep neural network-based model potential, referred to as deep potential (**DP**).
+The force field of PbTiO$`_3`$ utilized in this work is a deep neural network-based model potential, referred to as deep potential (**DP**).
 
-Details regarding the construction of the training database, DFT calculations, and metadata of the DP model were documented in our previous work [2]. Specifically, we adopted the **DP-GEN**, a concurrent learning procedure, to construct the training database (see details in **Section 2.1**). The initial training database contains DFT energies and atomic forces for structures derived from random perturbations of ground-state structures of $P4mm$ (tetragonal) and $Pm3m$ (cubic) phases of PbTiO$_3$. The final training database comprises 13021 PbTiO$_3$ configurations. You can access the training database in `Spiral/train/PSTO-data.zip`.
+Details regarding the construction of the training database, DFT calculations, and metadata of the DP model were documented in our previous work [2]. Specifically, we adopted the **DP-GEN**, a concurrent learning procedure, to construct the training database (see details in **Section 2.1**). The initial training database contains DFT energies and atomic forces for structures derived from random perturbations of ground-state structures of $P4mm$ (tetragonal) and $Pm3m$ (cubic) phases of PbTiO$`_3`$. The final training database comprises 13021 PbTiO$`_3`$ configurations. You can access the training database in `Spiral/train/PSTO-data.zip`.
 
 ### 2.2. DP-GEN
 
-We employ the Deep Potential Generator (DP-GEN) to construct the training database. DP-GEN is a concurrent learning procedure consisting of three stages: *labeling*, *training*, and *exploration*, which together form a closed loop. Starting with an initial training database that contains DFT energies and forces for a few configurations, four DP models with distinct random initializations of neural networks are *trained*. In the *exploration* phase, one of these models is employed for MD simulations to explore the configuration space. Predictions (energies and atomic forces) are generated using all four models for each new configuration sampled from MD. For configurations that are well represented by the current training database, these four models should display nearly identical predictive accuracy. However, for those not well-represented, we expect the four models to produce scattered predictions with significant deviations. The maximum standard deviation of predictions from the four models serves as a criterion for *labeling*: configurations from MD with significant model deviation are *labeled*. The energies and atomic forces of these labeled configurations, as computed using DFT, are subsequently integrated into the training database for the next *training* cycle. Here, the maximum atomic force standard deviation, denoted as ε, is used as the labeling criterion. We introduce two thresholds, ε<sub>lo</sub> and ε<sub>hi</sub>; only configurations for which ε<sub>lo</sub> < ε < ε<sub>hi</sub> are labeled for DFT calculations. We set ε<sub>lo</sub> = 0.12 and ε<sub>hi</sub> = 0.25. The introduction of ε<sub>hi</sub> is to handle the exceptions due to highly distorted configurations resulting from low-quality DP models (especially in the first few cycles of DP-GEN) or unconverged DFT calculations. The iteration stops when all configurations sampled from MD simulations satisfy a predefined accuracy across all four models.  A primary advantage of the DP-GEN approach is its streamlined and largely autonomous data generation, minimizing human intervention.
+We employ the Deep Potential Generator (DP-GEN) to construct the training database. DP-GEN is a concurrent learning procedure consisting of three stages: *labeling*, *training*, and *exploration*, which together form a closed loop. Starting with an initial training database that contains DFT energies and forces for a few configurations, four DP models with distinct random initializations of neural networks are *trained*. In the *exploration* phase, one of these models is employed for MD simulations to explore the configuration space. Predictions (energies and atomic forces) are generated using all four models for each new configuration sampled from MD. For configurations that are well represented by the current training database, these four models should display nearly identical predictive accuracy. However, for those not well-represented, we expect the four models to produce scattered predictions with significant deviations. The maximum standard deviation of predictions from the four models serves as a criterion for *labeling*: configurations from MD with significant model deviation are *labeled*. The energies and atomic forces of these labeled configurations, as computed using DFT, are subsequently integrated into the training database for the next *training* cycle. Here, the maximum atomic force standard deviation, denoted as ε, is used as the labeling criterion. We introduce two thresholds, ε<sub>lo</sub> and ε<sub>hi</sub> ; only configurations for which ε<sub>lo</sub> < ε < ε<sub>hi</sub> are labeled for DFT calculations. We set ε<sub>lo</sub> = 0.12 and ε<sub>hi</sub> = 0.25. The introduction of ε<sub>hi</sub> is to handle the exceptions due to highly distorted configurations resulting from low-quality DP models (especially in the first few cycles of DP-GEN) or unconverged DFT calculations. The iteration stops when all configurations sampled from MD simulations satisfy a predefined accuracy across all four models.  A primary advantage of the DP-GEN approach is its streamlined and largely autonomous data generation, minimizing human intervention.
 
 <div align=center>
     <img src="./picture/DP-GEN.png" width="80%" height="auto">
@@ -78,13 +78,13 @@ We employ 2x2x2 supercells of 40 atoms for first-principles DFT calculations usi
 
 ### 2.4. Deep Potential
 
-The DP model, based on a deep neural network with the number of learnable parameters on the order of 10$^{6}$, offers a robust mathematical structure to represent highly nonlinear and complex interatomic interactions while bypassing the need to handcraft descriptors that represent local atomic environments. Specifically, the DP model features a symmetry-preserving embedding network that maps an atom's local environment to inputs for a fitting neural network which then outputs the atomic energy; the sum of atomic energies yields the total energy. The original references to the DP model can be found in <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.120.143001">[3]</a> and <a href="https://dl.acm.org/doi/10.5555/3327345.3327356">[4]</a>.
+The DP model, based on a deep neural network with the number of learnable parameters on the order of 10$`^{6}`$, offers a robust mathematical structure to represent highly nonlinear and complex interatomic interactions while bypassing the need to handcraft descriptors that represent local atomic environments. Specifically, the DP model features a symmetry-preserving embedding network that maps an atom's local environment to inputs for a fitting neural network which then outputs the atomic energy; the sum of atomic energies yields the total energy. The original references to the DP model can be found in <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.120.143001">[3]</a> and <a href="https://dl.acm.org/doi/10.5555/3327345.3327356">[4]</a>.
 
 In this study, we utilized the smooth version of the DP model and employed the DEEPMD-KIT package for training. The cutoff radius is set to 6 Å, with smoothing starting at 0.5 Å. The embedding network follows a ResNet-like architecture with dimensions (25, 50, 100). The fitting network consists of three layers, each containing 240 nodes. The loss function is defined as:
 
-$$ L({p}_\epsilon, {p}_f, {p}_\xi) = {p}_\epsilon \Delta{\epsilon}^2 + \frac{p_f}{3N} \sum_i \left| \Delta{{{\mathbf{F}_i}}} \right|^2 + \frac{p_\xi}{9} \left | \Delta \xi \right |^2 $$
+$` L({p}_\epsilon, {p}_f, {p}_\xi) = {p}_\epsilon \Delta{\epsilon}^2 + \frac{p_f}{3N} \sum_i \left| \Delta{{{\mathbf{F}_i}}} \right|^2 + \frac{p_\xi}{9} \left | \Delta \xi \right |^2 `$
 
-Here, $`\Delta`$ represents the difference between DP predictions and training data, $`N`$ is the number of atoms, $`\epsilon`$ is the energy per atom, and $`\mathbf{F}_i`$ is the atomic force of atom $`i`$. The prefactors $`{p}_\epsilon`$, $`{p}_f`$, and $`{p}_\xi`$ are adjustable parameters. We increased $`{p}_\epsilon`$ from 0.02 to 1, while reducing $`{p}_f`$ from 1000 to 1.
+Here, $`\Delta`$ represents the difference between DP predictions and training data, $`N`$ is the number of atoms, $`\epsilon`$ is the energy per atom, and $`\mathbf{F}_i`$ is the atomic force of atom $`i`$. The prefactors $`{p}_\epsilon`$ , $`{p}_f`$, and $`{p}_\xi`$ are adjustable parameters. We increased $`{p}_\epsilon`$ from 0.02 to 1, while reducing $`{p}_f`$ from 1000 to 1.
 
 The `input.json` file for training is located in the `Spiral/train` directory.
 
@@ -100,7 +100,7 @@ Phonon spectra of (c) tetragonal PTO, and (d) cubic PTO. (f) Temperature depende
 
 Here we compare the energies and atomic forces predicted by DFT and DP for all the structures in the final training database.
 
-The final training database comprises 13021 PbTiO$_3$ configurations and we calculated 231 cases in our paper, as indicated by the red dots in the graph.
+The final training database comprises 13021 PbTiO$`_3`$ configurations and we calculated 231 cases in our paper, as indicated by the red dots in the graph.
 
 The following graph can be plotted using data files `Spiral/paper/DFT_phase_diagram/model-error.dat` and `Spiral/paper/DFT_phase_diagram/Energy-min1st`.
 
@@ -118,7 +118,7 @@ The INCAR file for optimizing the structure is located in `Spiral/paper/DFT_phas
 
 All the CONTCAR are in these directories e.g., `Spiral/paper/DFT_phase_diagram/IO/a3.932b3.954/iniA`:
 
-1. **a3.932b3.954** represent the strain condition: a$\rm _{IP}$=3.932 Å, b$\rm _{IP}$=3.954 Å.
+1. **a3.932b3.954** represent the strain condition: a$`\rm _{IP}`$=3.932 Å, b$`\rm _{IP}`$=3.954 Å.
 
 2. **iniA** represent the initial configuration whose polarization along [110]; **iniB** represent the initial configuration whose polarization along [101]; **iniC** represent the initial configuration whose polarization along [001]; **iniD** represent the initial configuration whose polarization along [111].
 
