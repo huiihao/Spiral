@@ -120,7 +120,7 @@ The INCAR file for optimizing the structure is located in `Spiral/paper/DFT_phas
 
 All the CONTCAR are in these directories e.g., `Spiral/paper/DFT_phase_diagram/IO/a3.932b3.954/iniA`:
 
-1. **a3.932b3.954** represent the strain condition: a$`_{IP}`$=3.932 Å, b$`_{IP}`$=3.954 Å.
+1. **a3.932b3.954** represent the strain condition: $a_{\rm IP}$=3.932 Å, $b_{\rm IP}$=3.954 Å.
 
 2. **iniA** represent the initial configuration whose polarization along [110]; **iniB** represent the initial configuration whose polarization along [101]; **iniC** represent the initial configuration whose polarization along [001]; **iniD** represent the initial configuration whose polarization along [111].
 
