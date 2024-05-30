@@ -21,7 +21,7 @@
 	</i><br/>
 	<i><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.120.143001"> [3] Deep Potential Molecular Dynamics: A Scalable Model with the Accuracy of Quantum Mechanics, Linfeng Zhang, Jiequn Han, Han Wang*, Roberto Car, and Weinan E†, Phys. Rev. Lett. 120, 143001 (2018)</a>
 	</i><br/>
-	<i><a href="https://dl.acm.org/doi/10.5555/3327345.3327356"> [4] End-to-end symmetry preserving inter-atomic potential energy model for finite and extended systems, Linfeng Zhang, Jiequn Han, Han Wang*, Wissam A. Saidi†, Roberto Car, Weinan E‡, 32nd Conference on Neural Information Processing Systems (NeurIPS 2018), Montréal, Canada (2018)</a>
+	<i><a href="https://dl.acm.org/doi/10.5555/3327345.3327356"> [4] End-to-end symmetry preserving inter-atomic potential energy model for finite and extended systems, Linfeng Zhang, Jiequn Han, Han Wang*, Wissam A. Saidi†, Roberto Car, Weinan E‡, 32nd NeurIPS (2018)</a>
 	</i><br/>       
     </p>
 </div>
