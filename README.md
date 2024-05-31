@@ -92,7 +92,7 @@ The `input.json` file for training is located in the `Spiral/train` directory.
 
 ### 2.5. Fitting perfomance
 
-Phonon spectra of (c) tetragonal PTO, and (d) cubic PTO. (f) Temperature dependence of spontaneous polarization and local atomic displacements of Pb and Ti ($D_{\rm Pb}$ and $D_{\rm Ti}$) in PTO from DPMD simulations.
+Phonon spectra of tetragonal PTO, and cubic PTO. Temperature dependence of spontaneous polarization and local atomic displacements of Pb and Ti ($D_{\rm Pb}$ and $D_{\rm Ti}$) in PTO from DPMD simulations.
 
 <div align=center>
     <img src="./picture/phonon1.png" width="30%" height="auto">
