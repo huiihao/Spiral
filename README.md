@@ -217,6 +217,5 @@ $a_1/a_2$ doamin: Due to the large number of files, only the data for 25 ps is p
 
 ---
 
-<div align=center>
-    <img src="./picture/star-history-spiral.png" width="100%" height="auto">
-</div>
+## Star History
+[![Star History Chart](https://api.star-history.com/svg?repos=huiihao/Spiral&type=Date)](https://star-history.com/#huiihao/Spiral&Date)
