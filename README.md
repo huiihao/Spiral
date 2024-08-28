@@ -216,5 +216,4 @@ $c/a$ doamin: Due to the large number of files, only the data for 25 ps is provi
 $a_1/a_2$ doamin: Due to the large number of files, only the data for 25 ps is provided here `Spiral/paper/other_domain/example_a1a2/40_40_4`.
 
 ---
-## Star History
 [![Star History Chart](https://api.star-history.com/svg?repos=huiihao/Spiral&type=Date)](https://star-history.com/#huiihao/Spiral&Date)
